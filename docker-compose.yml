@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: process.env.MYSQL_DATABASE
+      MYSQL_USER: process.env.MYSQL_USER
+      MYSQL_PASSWORD: process.env.MYSQL_PASSWORD
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
